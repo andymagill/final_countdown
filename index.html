@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<title>Final Countdown jQuery Plugin Demo </title>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+		<script src="js/jquery.final_countdown.js"></script>
+
+	</head>
+
+	<body>
+
+	<style>
+		#countdown {
+			font-family: "Courier New", Courier, monospace;
+			font-size: 20px;
+		}
+		.code {
+			white-space:PRE;
+			font-family: "Courier New", Courier, monospace;
+			color: #666;
+		}
+	</style>
+
+	<div class="wrapper">
+		<header>
+			<div class="title">
+				<h1>Final Countdown jQuery Plugin Demo </h1>
+				<h2>This plugin can be used to create a real-time accurate countdown clock.</h2>
+			</div>
+		</header>
+
+		<div class="content">
+			<section class="description">
+				<p>This plugin grabs the current time from an API call to avoid incorrect time settings on the user's device. The format of the clock is customisable as is a message that is displayed with the clock reaches zero. Here is the clock in action : </p>
+			</section>
+
+			<div id="countdown">&nbsp;</div>
+
+			<section class="instructions">
+				<p>You can initialize the plugin a few different ways.</p>
+
+				<p><strong>Quick and dirty method: </strong></p>
+				<p>Simply specify an end time (mandatory) in ISO8601 format :</p>
+
+				<p class="code">$.fn.countdown({
+	'end_time': '2025-11-29T05:00:00-05:00'
+});</p>
+
+
+				<p><strong>Custom Options: </strong></p>allows any number of optional customizations :
+				<p class="code">$.fn.countdown({
+	'end_time': '2025-11-29T05:00:00-05:00',
+	'counter_selector': '#countdown',
+	'intro_message': 'The world will &lt;strong&gt;END&lt;/strong&gt; in ', //  can include HTML
+	'complete_message': 'The world has ended!', //  can include HTML
+	'days_label': 'days,',
+	'hours_label': 'hours,',
+	'minutes_label': 'minutes,',
+	'seconds_label': 'seconds.',
+	'time_api': 'http://www.timeapi.org/utc/now.json'
+}); </p>
+			</section>
+
+			<section class="details">
+				<p>This plugin has some potential conflicts.  For browsers using IE8 and lower, it adds a method to the JS Date object that adds the ability to parse dates in ISO8601 format. If you have another script that also does this, you may see unexpected results from one of the scripts. Also, the call method decribed above assumes jQuery is using it's default namespace. </p>
+				<p>Created by Andrew Magill. (<a href="andymagill.github.io">website</a>) </p>
+				<p>This plugin is released under MIT License :<br>
+				http://opensource.org/licenses/mit-license.php  </p>
+			</section>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		$.fn.countdown({
+			'end_time': '2025-11-29T05:00:00-05:00'
+		});
+	</script>
+  	</body>
+</html>
